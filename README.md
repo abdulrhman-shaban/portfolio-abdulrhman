@@ -1,9 +1,9 @@
 # Project Name
 
-A clean and responsive web project built to [اشرح وظيفته ببساطة، مثلاً: showcase modern design / generate colors / manage tasks].
+A clean and responsive web project built to [showcase modern design / generate colors / manage tasks].
 
 ## 🚀 Live Demo
-[Click here to view the project](http://127.0.0.1:5500/)
+[Click here to view the project](https://abdulrhman-shaban.github.io/portfolio-abdulrhman/)
 
 ## 🛠 Technologies
 - HTML5
