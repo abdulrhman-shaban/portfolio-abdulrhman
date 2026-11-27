@@ -4,18 +4,12 @@ html {
     scroll-behavior: smooth;
 }
 
-section {
-    padding: 80px 0;
-    scroll-margin-top: 100px; 
-}
-
 *{
     padding: 0;
     margin: 0;
     box-sizing: border-box;
     text-decoration: none;
     list-style-type: none;
-    font-family: "Inter", sans-serif;
 }
 
 :root{
@@ -29,16 +23,24 @@ section {
 
 body{
     background-color: #131313;
+    font-family: "Inter", sans-serif;
 }
 
-
-.container{
-    width:80%;
-    margin: auto;
-    max-width: 1500px;
+input,
+textarea,
+button{
+    font-family: inherit;
 }
+
 section{
     padding: 80px 0;
+    scroll-margin-top: 100px;
+}
+
+.container{
+    width: 85%;
+    margin: auto;
+    max-width: 1500px;
 }
 
 img{
@@ -75,7 +77,6 @@ p{
 }
 .btn:hover{
     scale: 1.1;
-
 }
 
 .btn_no_bg{
@@ -87,6 +88,7 @@ p{
 .btn_no_bg:hover{
     color: var(--main_color);
 }
+
 /*background lines*/
 .bg-lines span{
     position: fixed;
@@ -99,34 +101,15 @@ p{
     animation: left_Right 18s infinite;
 }
 
-
-.bg-lines span:nth-child(1){
-    left: 10%;
-}
-.bg-lines span:nth-child(2){
-    left: 20%;
-}
-.bg-lines span:nth-child(3){
-    left: 30%;
-}
-.bg-lines span:nth-child(4){
-    left: 40%;
-}
-.bg-lines span:nth-child(5){
-    left: 50%;
-}
-.bg-lines span:nth-child(6){
-    left: 60%;
-}
-.bg-lines span:nth-child(7){
-    left: 70%;
-}
-.bg-lines span:nth-child(8){
-    left: 80%;
-}
-.bg-lines span:nth-child(9){
-    left: 90%;
-}
+.bg-lines span:nth-child(1){ left: 10%; }
+.bg-lines span:nth-child(2){ left: 20%; }
+.bg-lines span:nth-child(3){ left: 30%; }
+.bg-lines span:nth-child(4){ left: 40%; }
+.bg-lines span:nth-child(5){ left: 50%; }
+.bg-lines span:nth-child(6){ left: 60%; }
+.bg-lines span:nth-child(7){ left: 70%; }
+.bg-lines span:nth-child(8){ left: 80%; }
+.bg-lines span:nth-child(9){ left: 90%; }
 
 @keyframes left_Right {
     0%{
@@ -142,7 +125,7 @@ p{
         transform: translateX(0px);
     }
 }
-/*background lines*/
+/*end background lines*/
 
 .top_section{
     text-align: center;
@@ -167,7 +150,7 @@ header.active{
     border-bottom: 1px solid #56565697;
 }
 header nav{
-    display:flex;
+    display: flex;
     justify-content: space-between;
     align-items: center;
     height: 100%;
@@ -177,7 +160,7 @@ header nav .logo img{
 }
 header nav .links{
     display: flex;
-    gap:40px;
+    gap: 40px;
 }
 header nav .links a{
     color: var(--white_color);
@@ -199,28 +182,25 @@ header nav .icons a{
 header nav .icons a:hover{
     scale: 1.4;
 }
-
 /*end header*/
 
 /*start hero*/
 .hero{
-    padding-top: 180px;
-    height: 100vh;
     display: flex;
-    justify-content: center;
     align-items: center;
-}
-.container{
-    width: 85%;
-    margin: auto;
+    min-height: 100vh;
+    padding: 140px 0 80px;
+    position: relative;
 }
 .hero .container{
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 40px;
 }
 .hero .div_Text{
     width: 50%;
+    min-width: 0;
 }
 .hero .div_Text h4{
     color: var(--p_color);
@@ -229,11 +209,12 @@ header nav .icons a:hover{
 }
 .hero .div_Text h1{
     font-size: 70px;
+    line-height: 1.05;
 }
 .hero .div_Text h2{
     font-size: 70px;
     font-weight: normal;
-    line-height: 0.9;
+    line-height: 1.05;
 }
 .hero .div_Text p{
     margin: 30px 0;
@@ -247,19 +228,37 @@ header nav .icons a:hover{
 }
 .hero .div_img{
     width: 45%;
+    height: 480px;
     position: relative;
-    border-radius: 0 0 600px 600px;
+    isolation: isolate;
     overflow: hidden;
+    flex-shrink: 0;
+    border-radius: 0 0 600px 600px;
+}
+.hero .div_img .Person{
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: bottom center;
 }
 .hero .div_img .bg_img{
     position: absolute;
     bottom: 0;
     left: 0;
-    z-index: -1;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    z-index: 1;
 }
+/*end hero*/
 
 /*start about*/
-
+.about{
+    position: relative;
+    z-index: 1;
+}
 .about .container{
     background: var(--black_color);
     display: flex;
@@ -267,9 +266,11 @@ header nav .icons a:hover{
     align-items: center;
     border: 2px solid var(--main_color);
     padding: 50px;
+    position: relative;
 }
 .about .div_Text{
     width: 50%;
+    min-width: 0;
 }
 .about .div_Text h5{
     color: var(--p_color);
@@ -285,7 +286,7 @@ header nav .icons a:hover{
     margin-bottom: 20px;
 }
 .about .div_Text p{
-    line-height: 1.9;
+    line-height: 1.8;
 }
 .about .div_Text ul{
     display: flex;
@@ -307,26 +308,24 @@ header nav .icons a:hover{
 .about .div_img{
     width: 40%;
 }
-/*End About Section*/
+/*end about*/
 
-/*start Searvices*/
-
+/*start services*/
 .Services .boxs{
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-     align-items: stretch;
+    align-items: stretch;
 }
-
 .Services .boxs .box{
+    display: flex;
+    flex-direction: column;
     width: 30%;
     text-align: center;
     border-radius: 10px;
     padding: 50px 20px;
     border: 1px solid var(--border-color);
     transition: 0.3s ease-in-out;
-    flex-direction: column;
-
 }
 .Services .boxs .box i{
     color: var(--main_color);
@@ -342,7 +341,7 @@ header nav .icons a:hover{
     margin-bottom: 40px;
     font-size: 14px;
     line-height: 1.7;
-    flex:1;
+    flex: 1;
 }
 .Services .boxs .box:hover{
     border-color: var(--main_color);
@@ -353,9 +352,9 @@ header nav .icons a:hover{
 .Services .boxs .box .btn{
     margin-top: auto;
 }
-/*End Services*/
+/*end services*/
 
-/*Start projects*/
+/*start projects*/
 .projects .project_box{
     display: flex;
     align-items: center;
@@ -367,7 +366,7 @@ header nav .icons a:hover{
 }
 .projects .project_box .text{
     margin-left: 100px;
-    width: calc(50%-100px);
+    width: calc(50% - 100px);
 }
 .projects .project_box .text h4{
     font-size: 20px;
@@ -377,10 +376,10 @@ header nav .icons a:hover{
 .projects .project_box .text h3 a{
     font-size: 40px;
     color: var(--white_color);
-    transition: 0.5s
+    transition: 0.5s;
 }
 .projects .project_box .text h3 a:hover{
-    color: var(--main_color);;
+    color: var(--main_color);
 }
 .projects .project_box .text p{
     margin: 30px 0 50px;
@@ -406,67 +405,60 @@ header nav .icons a:hover{
 .projects .project_box.project_box_2{
     flex-direction: row-reverse;
 }
-/*End projects*/
+/*end projects*/
 
-/*start Contact*/
-.contact {
+/*start contact*/
+.contact{
     padding-bottom: 80px;
 }
-
-.contact .container {
+.contact .container{
     display: flex;
     justify-content: space-between;
 }
-.contact .top_section {
-    margin-bottom: 100px;
-}
-.contact .soial_contact {
+.contact .soial_contact{
     width: 30%;
 }
-.contact .soial_contact h2 {
+.contact .soial_contact h2{
     color: var(--white_color);
     margin-bottom: 40px;
 }
-.contact .soial_contact .links {
+.contact .soial_contact .links{
     display: flex;
     flex-direction: column;
 }
-.contact .soial_contact .links a {
+.contact .soial_contact .links a{
     color: var(--white_color);
     font-size: 20px;
     margin-bottom: 25px;
     position: relative;
     left: 0;
     transition: 0.3s;
-
 }
-.contact .soial_contact .links a i {
-    color: var(--main_color);
+.contact .soial_contact .links a i{
     margin-right: 5px;
     width: 45px;
     height: 45px;
-    background: var(--main_color);
     background-color: var(--main_color);
     text-align: center;
     line-height: 45px;
     color: var(--bg_color);
     border-radius: 5px;
 }
-.contact  .soial_contact .links a:hover{
+.contact .soial_contact .links a:hover{
     left: 15px;
 }
-.contact form {
+.contact form{
     width: 60%;
     text-align: center;
 }
-.contact .inpts_form {
+.contact .inpts_form{
     width: 100%;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
 }
 .contact form .inpts_form input,
-.contact .inpts_form textarea {
+.contact .inpts_form textarea{
     border-radius: 5px;
     padding: 20px;
     outline: none;
@@ -478,41 +470,37 @@ header nav .icons a:hover{
 .contact form .inpts_form input{
     width: 48%;
 }
-.contact .inpts_form textarea {
+.contact .inpts_form textarea{
     width: 100%;
 }
 .contact form .inpts_form input:focus,
 .contact form .inpts_form textarea:focus{
     border-color: var(--main_color);
 }
-.contact .btn {
+.contact .btn{
     outline: none;
+    border: none;
     padding: 15px 35px;
     font-size: 18px;
     cursor: pointer;
     transition: 0.3s;
 }
+/*end contact*/
 
-.contact .btn:hover {
-    scale: 1.1;
-}
-
-/* End contact */ 
-/*start Resbonsive*/
-
+/*start responsive*/
 .close_menu,
 header .links .logo,
-.icon_menu
-{
+.icon_menu{
     display: none;
 }
 
-@media (max-width:1250px) {
+@media (max-width: 1250px){
     .container{
         width: 90%;
     }
 }
-@media (max-width:1000px) {
+
+@media (max-width: 1000px){
     header nav .links{
         position: fixed;
         top: 0;
@@ -526,7 +514,7 @@ header .links .logo,
         text-align: center;
         transition: 0.3s ease-in-out;
     }
-     header nav .links.active{
+    header nav .links.active{
         left: 0;
     }
     .close_menu{
@@ -541,24 +529,10 @@ header .links .logo,
         display: block;
     }
 
-
-    /*Resbonsive home*/
-    .hero .div_Text h4{
-        font-size: 25px;
-    }
-    .hero .div_Text h1{
-        font-size: 55px;
-    }
-    .hero .div_Text h2{
-        font-size: 55px;
-    }
-    .hero .div_Text p{
-        font-size: 16px;
-        margin: 30px 0 ;
-    }
-    .hero .btn{
-        font-size: 18px;
-        padding: 16px 40px;
+    /*responsive hero*/
+    .hero{
+        min-height: auto;
+        padding: 130px 0 50px;
     }
     .hero .container{
         flex-direction: column;
@@ -569,12 +543,30 @@ header .links .logo,
         text-align: center;
         margin-bottom: 30px;
     }
+    .hero .div_Text h4{
+        font-size: 25px;
+    }
+    .hero .div_Text h1,
+    .hero .div_Text h2{
+        font-size: 55px;
+    }
+    .hero .div_Text p{
+        font-size: 16px;
+        margin: 30px auto;
+    }
+    .hero .btn{
+        font-size: 18px;
+        padding: 16px 40px;
+    }
     .hero .btns{
         justify-content: center;
     }
-    .hero{
-        height: auto;
+    .hero .div_img{
+        width: 70%;
+        height: 450px;
     }
+
+    /*responsive about*/
     .about .container{
         flex-direction: column;
         padding: 30px;
@@ -587,13 +579,13 @@ header .links .logo,
         width: 45%;
     }
 
-
+    /*responsive services*/
     .Services .boxs .box{
         width: 47%;
         margin-bottom: 30px;
     }
 
-
+    /*responsive projects*/
     .projects .project_box .text h3 a{
         font-size: 25px;
     }
@@ -603,19 +595,18 @@ header .links .logo,
     .projects .project_box .text p{
         font-size: 14px;
     }
-    .projects .project_box .text {
+    .projects .project_box .text{
         width: calc(50% - 50px);
         margin-left: 50px;
     }
 
-
+    /*responsive contact*/
     .contact .container{
         flex-direction: column;
     }
     .contact .soial_contact{
         width: 100%;
     }
-
     .contact .soial_contact .links{
         flex-direction: row;
     }
@@ -638,39 +629,40 @@ header .links .logo,
     }
 }
 
-@media (max-width:500px) {
+@media (max-width: 500px){
     .btn{
         padding: 12px 25px;
         font-size: 14px;
     }
-    header nav .icons a{
-        font-size: 20px;
-    }
     header nav .icons{
         gap: 20px;
         align-items: center;
+    }
+    header nav .icons a{
+        font-size: 20px;
     }
     header nav .logo img{
         width: 150px;
     }
     header nav .links{
         width: 100%;
-        left:-100%;
+        left: -100%;
     }
     .icon_menu{
         margin-left: 15px;
     }
 
-      .hero .div_Text h4{
+    /*hero*/
+    .hero{
+        padding: 125px 0 40px;
+    }
+    .hero .div_Text h4{
         font-size: 22px;
     }
-    .hero .div_Text h1{
-        font-size: 40px;
-    }
+    .hero .div_Text h1,
     .hero .div_Text h2{
         font-size: 40px;
     }
-
     .hero .div_Text p{
         font-size: 14px;
         margin: 25px auto;
@@ -681,12 +673,11 @@ header .links .logo,
         padding: 14px 30px;
     }
     .hero .div_img{
-        width:75%;
+        width: 75%;
+        height: 380px;
     }
-    
 
-
-
+    /*about*/
     .about .div_Text h2{
         font-size: 30px;
     }
@@ -707,6 +698,8 @@ header .links .logo,
     .top_section h2{
         font-size: 22px;
     }
+
+    /*services*/
     .Services .boxs .box{
         width: 100%;
     }
@@ -714,9 +707,11 @@ header .links .logo,
         font-size: 55px;
     }
 
-    .projects .project_box{
-        flex-direction: column;
+    /*projects*/
+    .projects{
+        padding-bottom: 40px;
     }
+    .projects .project_box,
     .projects .project_box.project_box_2{
         flex-direction: column;
     }
@@ -726,7 +721,7 @@ header .links .logo,
     }
     .projects .project_box .text{
         width: 100%;
-        margin-left: 0px;
+        margin-left: 0;
     }
     .projects .project_box .text p{
         margin: 20px 0 30px;
@@ -735,22 +730,18 @@ header .links .logo,
         font-size: 23px;
     }
 
-
-    .contact .soial_contact .links{
-        flex-direction: column;
-    }
-    .contact .soial_contact .links a{
-        width: 100%;
-    }
-
-    .projects{
-        padding-bottom: 40px;
-    }
+    /*contact*/
     .contact{
         padding-top: 0;
     }
     .contact .top_section{
         margin-bottom: 60px;
+    }
+    .contact .soial_contact .links{
+        flex-direction: column;
+    }
+    .contact .soial_contact .links a{
+        width: 100%;
     }
     .contact form{
         width: 100%;
@@ -760,5 +751,5 @@ header .links .logo,
         padding: 15px;
         margin-bottom: 20px;
     }
-    
 }
+/*end responsive*/
